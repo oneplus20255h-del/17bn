@@ -758,15 +758,14 @@ def set_label(key: str, new_label: str) -> None:
     data_mutate(_mut)
 
 
-# =========================================================
+# =================================================================
 # CONTACT GATE (KUWAIT ONLY)
-# =========================================================
+# =================================================================
 def normalize_kw_phone(raw: str) -> Tuple[Optional[str], str]:
     """
-    Accept:
-      - +965XXXXXXXX
-      - 965XXXXXXXX
-      - local 8 digits starting with 2/5/6/9 -> +965
+    Accepts:
+    - +965XXXXXXXX
+    - 965XXXXXXXX
     """
     s = normalize_digits(raw or "")
     s = re.sub(r"[^\d+]", "", s)
