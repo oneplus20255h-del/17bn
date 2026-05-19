@@ -1,0 +1,247 @@
+{
+  "users": [
+    8136678328,
+    164796308,
+    8276292813,
+    7672544936
+  ],
+  "extra_admins": [
+    7672544936,
+    8276292813
+  ],
+  "inbox": [
+    {
+      "time": "2026-01-06 01:16:32",
+      "name": "M .SH",
+      "username": "@mohammeda_shab1",
+      "id": "164796308",
+      "text": "آلُـۜسـۨۚ(✋)ــِۖلُأمٌ ؏ـليۜـ(💜)ـكـۜم وݛحـٍّْـٍّْ⁽😘₎ـٍّْمهہ الًـًٍۖـٍـٍۖ(☝)ٍۖـًٍٍٍّـًٍلۖهًٍۖۂ وبـۗـۗـۗـۗـۗـۗركۧۧــۧۧۧۧۧـۗـۗ(ۗ😇)ـۗـۗاتهۂ عليكم"
+    },
+    {
+      "time": "2026-01-17 16:14:06",
+      "name": "تعليم إكاديمي",
+      "username": "@QHGPB",
+      "id": "8136678328",
+      "text": "هاي"
+    },
+    {
+      "time": "2026-01-19 15:24:33",
+      "name": "💍Z",
+      "username": "@nvjbvhno",
+      "id": "8276292813",
+      "text": "السلام عليكم"
+    }
+  ],
+  "announcements": [
+    {
+      "time": "2026-01-19 00:54:43",
+      "text": "السلام عليكم",
+      "sent_to": 2,
+      "failed": 2,
+      "has_photo": false,
+      "has_document": false,
+      "document_name": ""
+    },
+    {
+      "time": "2026-01-19 01:51:08",
+      "text": "📢 رابط تيليجرام القروب العام:\nhttps://t.me/+W7B8XEJgaqdjOWY0",
+      "sent_to": 2,
+      "failed": 2,
+      "has_photo": false,
+      "has_document": false
+    },
+    {
+      "time": "2026-01-19 02:00:47",
+      "text": "السلام عليكم",
+      "sent_to": 2,
+      "failed": 2,
+      "has_photo": false,
+      "has_document": false
+    },
+    {
+      "time": "2026-01-19 15:35:39",
+      "text": "السلام عليكم",
+      "sent_to": 3,
+      "failed": 1,
+      "has_photo": false,
+      "has_document": false
+    }
+  ],
+  "general_groups": [
+    {
+      "id": "1768686262041",
+      "name": "القروب العام",
+      "telegram": "https://t.me/+W7B8XEJgaqdjOWY0",
+      "whatsapp": "https://chat.whatsapp.com/GL7rENoA1m03kCZJZ8j2DF"
+    }
+  ],
+  "colleges": {
+    "🏢 كلية إدارة الأعمال": {
+      "about": "كلية تهتم بإعداد كوادر في الإدارة والمحاسبة والاقتصاد وMIS والتسويق.",
+      "url": "https://www.aou.edu.kw/ar/academic-programs/Pages/default.aspx",
+      "whatsapp": [
+        "https://chat.whatsapp.com/GL7rENoA1m03kCZJZ8j2DF"
+      ],
+      "telegram": [],
+      "admission": "شروط القبول غير محددة بعد.",
+      "admission_conditions": "📝 شروط القبول في كلية إدارة الأعمال:\n\n• شهادة الثانوية العامة (جميع الفروع)\n• نسبة لا تقل عن 60%\n• اختبار القبول في الرياضيات والإنجليزية\n• اجتياز المقابلة الشخصية\n• خلو السجل الجنائي من القضايا الأخلاقية\n"
+    },
+    "💻 كلية دراسات الحاسوب": {
+      "about": "كلية تقنية تهتم بالحوسبة وتقنية المعلومات وتطوير المهارات البرمجية.",
+      "url": "https://www.aou.edu.kw/ar/academic-programs/Pages/default.aspx",
+      "whatsapp": [
+        "https://chat.whatsapp.com/GL7rENoA1m03kCZJZ8j2DF"
+      ],
+      "telegram": [],
+      "admission": "شروط القبول غير محددة بعد.",
+      "admission_conditions": "📝 شروط القبول في كلية دراسات الحاسوب:\n\n• الثانوية العامة (علمي فقط)\n• نسبة لا تقل عن 65%\n• اختبار القبول في الرياضيات والإنجليزية والحاسوب\n• اجتياز المقابلة الشخصية\n• مهارات أساسية في استخدام الحاسوب\n"
+    },
+    "👩‍🏫 كلية التربية": {
+      "about": "كلية متخصصة في برامج التربية والتعليم والتربية الخاصة والابتدائية.",
+      "url": "https://www.aou.edu.kw/ar/academic-programs/Pages/default.aspx",
+      "whatsapp": [],
+      "telegram": [],
+      "admission": "شروط القبول غير محددة بعد.",
+      "admission_conditions": "📝 شروط القبول في كلية التربية:\n\n• شهادة الثانوية العامة (جميع الفروع)\n• نسبة لا تقل عن 70%\n• اختبار في اللغة العربية والإنجليزية\n• اختبار المهارات التربوية\n• اجتياز المقابلة الشخصية\n• خلو السجل الجنائي\n"
+    },
+    "🌍 كلية اللغات": {
+      "about": "كلية تهتم بدراسة اللغات والترجمة حسب البرامج المتاحة بالفرع.",
+      "url": "https://www.aou.edu.kw/ar/academic-programs/Pages/default.aspx",
+      "whatsapp": [],
+      "telegram": [],
+      "admission": "شروط القبول غير محددة بعد.",
+      "admission_conditions": "📝 شروط القبول في كلية اللغات:\n\n• شهادة الثانوية العامة (جميع الفروع)\n• نسبة لا تقل عن 65%\n• اختبار كفاءة في اللغة الإنجليزية\n• اختبار في اللغة الثانية (حسب التخصص)\n• اجتياز المقابلة الشخصية\n"
+    }
+  },
+  "calendar": {
+    "semester_name": "الفصل الدراسي الأول",
+    "semester_start": "2026/20/2",
+    "semester_end": "2027/26/6",
+    "adddrop_start": "غير معروف",
+    "adddrop_end": "غير معروف",
+    "pdf1": "",
+    "pdf2": "",
+    "uploaded_pdf_file_id": "BQACAgQAAxkBAAIDU2lcN0FlT30DuQKB-YVUhjk6CXe2AALaHQAC93vgUn77nKyYQnQjOAQ",
+    "uploaded_pdf_name": "Academic Calendar 2025-1-UPD1.PDF",
+    "last_updated": "2026-01-06 01:14:12",
+    "last_source": "manual",
+    "manual_locked": "true",
+    "auto_enabled": "true",
+    "display_mode": "auto",
+    "manual_text": ""
+  },
+  "contact_collection_enabled": false,
+  "contacts_ok": [],
+  "contacts_rejected": [],
+  "content_items": {
+    "sum_books": {
+      "text": "",
+      "file_id": "",
+      "file_type": "",
+      "file_name": "",
+      "mime_type": "",
+      "updated_at": ""
+    },
+    "add_drop": {
+      "text": "💟 سحب / إسقاط (Drop) المواد 💟\n🔻 تنبيه مهم\nيشترط أن يكون الطالب دافع كامل الرسوم.\nلا يُسترجع أي مبلغ بعد سحب المادة.\n💠 طريقة سحب المواد\n1️⃣ الدخول على موقع الجامعة:\nhttps://sis.aou.edu.kw/OnlineServices/E-Services/RequestService.aspx\n2️⃣ اختيار Request Service\n3️⃣ اختيار Drop Course\n4️⃣ تحديد:\nSemester: Second\nYear: (حسب سنتك الدراسية)\n5️⃣ إدخال رقم الهاتف (8 أرقام)\n6️⃣ إدخال عنوان المنزل\n7️⃣ في خانة:\nComments\nService Field 1\nService Field 2\nيتم كتابة رمز المادة/المواد المراد سحبها (مادة واحدة أو جميع المواد).\n8️⃣ وضع علامة ✅ على الإقرار:\nI understand that I will be charged the mentioned fees per copy and they are not refundable\n\n9️⃣ الضغط على Request Service\n💠 شروط سحب المواد\n🔹 يبقى لدى الطالب 8 وحدات دراسية على الأقل بعد السحب\n🔹 ألا يكون الطالب مستجدًا في هذا الفصل\n🔹 لا يمكن سحب مواد اللغة الإنجليزية العامة مثل:\nEL098 – EL111\n❌ ملاحظات مهمة\nسحب المادة لا يؤثر على المعدل التراكمي\nيظهر في صفحة الدرجات الرمز W\n❌ في حال عدم انطباق الشروط\nيمكن سحب الفصل الدراسي كاملًا\nيُعتبر الطالب موقف قيده دراسيًا\nتتوقف الإعانة إن كانت تصرف حاليًا\nلا يمكن إصدار شهادة لمن يهمه الأمر\n⛔ قبل السحب فكّر جيدًا 🤔\nلدخول الاختبار النهائي يجب الحصول على:\n15 درجة على الأقل من 50\n(مجموع الميدتيرم + الواجب/النشاط)\nللنجاح في المادة يجب الحصول على:\n50 درجة من 100\nℹ️ مثال توضيحي\nميدتيرم: 20 من 30\nواجب: 16 من 20\nالمجموع: 36 من 50\n➡️ في النهائي يجب الحصول على 20 من 50 على الأقل\n❌ إذا حصلت على 19 تسقط المادة مهما كان مجموع أعمالك الفصلية.\n❌ مواد مستثناة من الشرط السابق\nالمواد التالية:\nEL097\nEL098\nEL099\n🔹 المطلوب فقط الوصول إلى 50 درجة من 100\n🔹 مثال:\nأعمال فصلية: 40 من 50\nنهائي: 10 من 50\n✅ تنجح بالمادة\n⛔ نصيحة أخيرة\nلا تسحب المادة إلا إذا كنت متأكدًا أنك تستطيع تحقيق نتيجة أفضل عند إعادتها 🌱",
+      "file_id": "",
+      "file_type": "",
+      "file_name": "",
+      "mime_type": "",
+      "updated_at": "2026-01-17 17:41:25"
+    },
+    "strike": {
+      "text": "",
+      "file_id": "",
+      "file_type": "",
+      "file_name": "",
+      "mime_type": "",
+      "updated_at": ""
+    },
+    "exams": {
+      "text": "",
+      "file_id": "",
+      "file_type": "",
+      "file_name": "",
+      "mime_type": "",
+      "updated_at": ""
+    },
+    "calendar_attach": {
+      "text": "",
+      "file_id": "BQACAgQAAxkBAAIOxGlsAvaqPKF_BacAAeEU1yKuRZjqsQACoxkAAngBYFM1bwFJpsw1UzgE",
+      "file_type": "document",
+      "file_name": "‎⁨التقويم_الاكاديمي_للفصل_الثاني_AF⁩.pdf",
+      "mime_type": "application/pdf",
+      "updated_at": "2026-01-18 00:46:23"
+    },
+    "absence": {
+      "text": "",
+      "file_id": "",
+      "file_type": "",
+      "file_name": "",
+      "mime_type": "",
+      "updated_at": ""
+    },
+    "annual_plan": {
+      "text": "انتظر التحديث",
+      "file_id": "",
+      "file_type": "",
+      "file_name": "",
+      "mime_type": "",
+      "updated_at": "2026-01-17 15:40:50"
+    },
+    "deprivation": {
+      "text": "",
+      "file_id": "",
+      "file_type": "",
+      "file_name": "",
+      "mime_type": "",
+      "updated_at": ""
+    },
+    "sum_notes": {
+      "text": "",
+      "file_id": "",
+      "file_type": "",
+      "file_name": "",
+      "mime_type": "",
+      "updated_at": ""
+    },
+    "reg_cont": {
+      "text": "",
+      "file_id": "",
+      "file_type": "",
+      "file_name": "",
+      "mime_type": "",
+      "updated_at": ""
+    },
+    "schedule": {
+      "text": "",
+      "file_id": "",
+      "file_type": "",
+      "file_name": "",
+      "mime_type": "",
+      "updated_at": ""
+    },
+    "reg_new": {
+      "text": "",
+      "file_id": "",
+      "file_type": "",
+      "file_name": "",
+      "mime_type": "",
+      "updated_at": ""
+    },
+    "admission": {
+      "text": "",
+      "file_id": "",
+      "file_type": "",
+      "file_name": "",
+      "mime_type": "",
+      "updated_at": ""
+    }
+  },
+  "hidden_buttons": [],
+  "button_labels": {
+    "main_calendar": "التقويم الأكاديمي الفصل الدراسي الثاني",
+    "main_admission": "✨📝 القبول والتسجيل 📝✨"
+  }
+}

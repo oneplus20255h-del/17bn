@@ -1,0 +1,166 @@
+{
+  "users": [
+    8136678328
+  ],
+  "extra_admins": [],
+  "inbox": [],
+  "announcements": [],
+  "general_groups": [],
+  "colleges": {
+    "🏢 كلية إدارة الأعمال": {
+      "about": "تقدم برامج إدارة الأعمال والمحاسبة والتسويق والتمويل التي تلبي احتياجات سوق العمل.",
+      "url": "https://www.lusailuniversity.edu.qa/academics/business",
+      "whatsapp": [],
+      "telegram": [],
+      "admission_conditions": "📝 شروط القبول في كلية إدارة الأعمال – جامعة لوسيل:\n\n• شهادة الثانوية العامة بنسبة لا تقل عن 75%\n• اجتياز اختبار القبول في اللغة الإنجليزية والرياضيات\n• IELTS بحد أدنى 5.5 أو TOEFL 61\n• اجتياز المقابلة الشخصية\n• رسالتين توصية أكاديمية\n"
+    },
+    "💻 كلية الهندسة والتكنولوجيا": {
+      "about": "تقدم برامج في هندسة الحاسوب، البرمجيات، الذكاء الاصطناعي، والأمن السيبراني.",
+      "url": "https://www.lusailuniversity.edu.qa/academics/engineering",
+      "whatsapp": [],
+      "telegram": [],
+      "admission_conditions": "📝 شروط القبول في كلية الهندسة والتكنولوجيا – جامعة لوسيل:\n\n• الثانوية العامة (علمي) بنسبة لا تقل عن 80%\n• اجتياز اختبار الرياضيات المتقدم والفيزياء\n• IELTS بحد أدنى 6.0 أو TOEFL 70\n• مهارات في استخدام الحاسوب\n• اجتياز المقابلة الشخصية\n"
+    },
+    "🏥 كلية العلوم الصحية": {
+      "about": "تقدم برامج في التمريض، الصحة العامة، والتغذية مع تركيز على الجانب العملي.",
+      "url": "https://www.lusailuniversity.edu.qa/academics/health-sciences",
+      "whatsapp": [],
+      "telegram": [],
+      "admission_conditions": "📝 شروط القبول في كلية العلوم الصحية – جامعة لوسيل:\n\n• الثانوية العامة (علمي) بنسبة لا تقل عن 85%\n• اجتياز اختبارات الكيمياء والأحياء\n• IELTS بحد أدنى 6.5 أو TOEFL 79\n• اجتياز الفحص الطبي\n• اجتياز المقابلة الشخصية\n"
+    },
+    "🎨 كلية التصميم والفنون": {
+      "about": "تقدم برامج في التصميم الجرافيكي، العمارة الداخلية، والإعلام الرقمي.",
+      "url": "https://www.lusailuniversity.edu.qa/academics/design-arts",
+      "whatsapp": [],
+      "telegram": [],
+      "admission_conditions": "📝 شروط القبول في كلية التصميم والفنون – جامعة لوسيل:\n\n• شهادة الثانوية العامة بنسبة لا تقل عن 70%\n• تقديم ملف أعمال سابقة (Portfolio)\n• اجتياز الاختبار العملي في التصميم\n• IELTS بحد أدنى 5.5 أو TOEFL 61\n• اجتياز المقابلة الشخصية\n"
+    },
+    "⚖️ كلية القانون": {
+      "about": "تقدم برنامج القانون مع تركيز على الأنظمة القطرية والدولية.",
+      "url": "https://www.lusailuniversity.edu.qa/academics/law",
+      "whatsapp": [],
+      "telegram": [],
+      "admission_conditions": "📝 شروط القبول في كلية القانون – جامعة لوسيل:\n\n• شهادة الثانوية العامة بنسبة لا تقل عن 85%\n• اجتياز اختبار اللغة العربية والإنجليزية\n• IELTS بحد أدنى 6.5 أو TOEFL 79\n• اجتياز اختبار المهارات التحليلية\n• اجتياز المقابلة الشخصية\n"
+    }
+  },
+  "calendar": {
+    "pdf1": "",
+    "pdf2": "",
+    "last_updated": "لم يتم التحديث بعد",
+    "last_source": "غير معروف",
+    "auto_enabled": "true",
+    "display_mode": "auto",
+    "manual_text": ""
+  },
+  "contact_collection_enabled": false,
+  "contacts_ok": [],
+  "contacts_rejected": [],
+  "content_items": {
+    "annual_plan": {
+      "text": "",
+      "file_id": "",
+      "file_type": "",
+      "file_name": "",
+      "mime_type": "",
+      "updated_at": ""
+    },
+    "sum_notes": {
+      "text": "",
+      "file_id": "",
+      "file_type": "",
+      "file_name": "",
+      "mime_type": "",
+      "updated_at": ""
+    },
+    "calendar_attach": {
+      "text": "",
+      "file_id": "",
+      "file_type": "",
+      "file_name": "",
+      "mime_type": "",
+      "updated_at": ""
+    },
+    "deprivation": {
+      "text": "",
+      "file_id": "",
+      "file_type": "",
+      "file_name": "",
+      "mime_type": "",
+      "updated_at": ""
+    },
+    "sum_books": {
+      "text": "",
+      "file_id": "",
+      "file_type": "",
+      "file_name": "",
+      "mime_type": "",
+      "updated_at": ""
+    },
+    "strike": {
+      "text": "",
+      "file_id": "",
+      "file_type": "",
+      "file_name": "",
+      "mime_type": "",
+      "updated_at": ""
+    },
+    "admission": {
+      "text": "",
+      "file_id": "",
+      "file_type": "",
+      "file_name": "",
+      "mime_type": "",
+      "updated_at": ""
+    },
+    "exams": {
+      "text": "",
+      "file_id": "",
+      "file_type": "",
+      "file_name": "",
+      "mime_type": "",
+      "updated_at": ""
+    },
+    "schedule": {
+      "text": "",
+      "file_id": "",
+      "file_type": "",
+      "file_name": "",
+      "mime_type": "",
+      "updated_at": ""
+    },
+    "absence": {
+      "text": "",
+      "file_id": "",
+      "file_type": "",
+      "file_name": "",
+      "mime_type": "",
+      "updated_at": ""
+    },
+    "add_drop": {
+      "text": "",
+      "file_id": "",
+      "file_type": "",
+      "file_name": "",
+      "mime_type": "",
+      "updated_at": ""
+    },
+    "reg_new": {
+      "text": "",
+      "file_id": "",
+      "file_type": "",
+      "file_name": "",
+      "mime_type": "",
+      "updated_at": ""
+    },
+    "reg_cont": {
+      "text": "",
+      "file_id": "",
+      "file_type": "",
+      "file_name": "",
+      "mime_type": "",
+      "updated_at": ""
+    }
+  },
+  "hidden_buttons": [],
+  "button_labels": {}
+}
