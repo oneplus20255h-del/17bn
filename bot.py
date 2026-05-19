@@ -51,9 +51,6 @@ AOU Kuwait Telegram Bot — FINAL (Updated)
 ملاحظة:
 - ضع توكنك بدل "123456789"
 - SUPER_ADMIN_IDS تم تثبيتها حسب طلبك
-"""
-
-
 import asyncio
 import json
 import logging
