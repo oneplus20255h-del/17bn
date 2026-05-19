@@ -1,3 +1,4 @@
+from __future__ import annotations
 from threading import Thread
 from flask import Flask
 
@@ -52,7 +53,6 @@ AOU Kuwait Telegram Bot — FINAL (Updated)
 - SUPER_ADMIN_IDS تم تثبيتها حسب طلبك
 """
 
-from __future__ import annotations
 
 import asyncio
 import json
