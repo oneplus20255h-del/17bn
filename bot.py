@@ -1,56 +1,4 @@
 from __future__ import annotations
-from threading import Thread
-from flask import Flask
-
-app = Flask('')
-
-@app.route('/')
-def home():
-    return "Bot is Alive!"
-
-def run():
-    app.run(host='0.0.0.0', port=8080)
-
-def keep_alive():
-    t = Thread(target=run)
-    t.start()
-
-# تشغيل سيرفر الويب الوهمي في الخلفية لإرضاء Render
-keep_alive()
-
-# bot.py
-# -*- coding: utf-8 -*-
-
-"""
-AOU Kuwait Telegram Bot — FINAL (Updated)
-
-✅ بوابة جهة اتصال (للأعضاء فقط) + يقبل الكويت فقط (+965)
-✅ السوبر أدمن فقط (IDs محددة) يقدر:
-   - تشغيل/إيقاف خدمة الأرقام
-   - مسح قوائم الأرقام (المقبولة/المرفوضة)
-   - إخفاء/إظهار الأزرار للعامة
-   - تغيير أسماء الأزرار
-   - إدارة الأدمن الإضافيين
-   - التحكم الكامل بالتقويم (تلقائي/مخصص/حذف) + (إرفاق PDF/صورة/نص)
-✅ الأدمن الإضافي يقدر:
-   - رفع/تعديل/حذف (ملف/صورة/نص) لأقسام الخدمات والملخصات
-   - إضافة/تعديل/حذف القروبات العامة
-   - إضافة/حذف روابط قروبات الكليات
-   - مشاهدة الأرقام المقبولة/المرفوضة + تصدير Excel (بدون مسح/تغيير)
-   - إرسال إعلانات لجميع الأعضاء
-✅ زر "التقويم الجامعي": يسمح للأدمن بإرفاق (PDF/صورة/نص) داخل الزر نفسه.
-✅ زر "السحب والإضافة": أصبح قابلاً للإدارة بواسطة الأدمن فقط (PDF/صورة/نص).
-✅ زر "القبول": يمكن للأدمن إضافة نص/صورة/ملف PDF
-✅ تصدير الأرقام إلى ملف Excel (Sheet للمقبولة وSheet للمرفوضة)
-✅ إدارة قروبات الكليات مع روابط واتساب وتليجرام معروفة
-✅ نظام الإعلانات للأدمن
-
-المتطلبات:
-  pip install python-telegram-bot==21.6 openpyxl
-
-ملاحظة:
-- ضع توكنك بدل "123456789"
-- SUPER_ADMIN_IDS تم تثبيتها حسب طلبك
 import asyncio
 import json
 import logging
@@ -143,7 +91,6 @@ AOU_ABOUT = (
     f"🔗 موقع الجامعة: {UNIV_URL}"
 )
 
-# ✅ معلومات القبول المحدثة مع شروط كل كلية
 AOU_ADMISSION = (
     "✅ القبول في الجامعة العربية المفتوحة – الكويت\n\n"
     "📌 الشروط العامة للقبول:\n"
@@ -193,7 +140,6 @@ AOU_MAJORS = (
     "• برامج لغات حسب المتاح بالفرع."
 )
 
-# ✅ أصبح زر السحب والإضافة قابل للإدارة (PDF/صورة/نص) للأدمن فقط
 AOU_ADD_DROP_FALLBACK = (
     "✏️ السحب والإضافة\n\n"
     "✅ الإضافة: خلال فترة السحب والإضافة حسب التقويم.\n"
@@ -281,7 +227,6 @@ BTN_DEL_FILE = "🗑️ حذف الملف"
 BTN_DELETE_SECTION = "🗑️ حذف القسم"
 BTN_SEND_ANNOUNCEMENT = "📨 إرسال إعلان"
 
-# Colleges view
 BTN_COLLEGE_ABOUT = "📌 نبذة"
 BTN_COLLEGE_URL = "🔗 رابط الكلية"
 BTN_COLLEGE_WA = "📱 قروبات واتساب"
@@ -343,9 +288,6 @@ DEFAULT_LABELS: Dict[str, str] = {
 
 HIDEABLE_KEYS: List[str] = list(DEFAULT_LABELS.keys())
 
-# =========================================================
-# CONTENT ITEMS (services/summaries + NEW: add_drop + calendar_attach + admission)
-# =========================================================
 CONTENT_KEYS: Dict[str, str] = {
     KEY_SERV_SCHEDULE: "schedule",
     KEY_SERV_ANNUAL: "annual_plan",
@@ -358,29 +300,26 @@ CONTENT_KEYS: Dict[str, str] = {
     KEY_SUM_BOOKS: "sum_books",
     KEY_SUM_NOTES: "sum_notes",
 }
-CONTENT_KEY_ADD_DROP = "add_drop"          # ✅ محتوى زر السحب والإضافة
-CONTENT_KEY_CALENDAR_ATTACH = "calendar_attach"  # ✅ محتوى زر التقويم (مرفق/نص)
-CONTENT_KEY_ADMISSION = "admission"        # ✅ محتوى زر القبول (نص/صورة/ملف)
+CONTENT_KEY_ADD_DROP = "add_drop"
+CONTENT_KEY_CALENDAR_ATTACH = "calendar_attach"
+CONTENT_KEY_ADMISSION = "admission"
 
 # =========================================================
-# DATA MODEL + STORAGE
+# DATA MODEL + STORAGE (keep as original but fixed)
 # =========================================================
 @dataclass
 class BotData:
     users: Set[int]
     extra_admins: Set[int]
     inbox: List[Dict[str, str]]
-    announcements: List[Dict[str, str]]  # ✅ تخزين الإعلانات
-
-    general_groups: List[Dict[str, str]]  # {id,name,telegram,whatsapp}
-    colleges: Dict[str, Dict[str, Any]]  # {name:{about,url,whatsapp:list,telegram:list,admission_conditions}}
-
-    calendar: Dict[str, str]  # links only + manual text (legacy) + modes
+    announcements: List[Dict[str, str]]
+    general_groups: List[Dict[str, str]]
+    colleges: Dict[str, Dict[str, Any]]
+    calendar: Dict[str, str]
     contact_collection_enabled: bool
     contacts_ok: List[Dict[str, str]]
     contacts_rejected: List[Dict[str, str]]
-
-    content_items: Dict[str, Dict[str, str]]  # item_key->{text,file_id,file_type,file_name,mime_type,updated_at}
+    content_items: Dict[str, Dict[str, str]]
     hidden_buttons: List[str]
     button_labels: Dict[str, str]
 
@@ -417,17 +356,16 @@ def _default_calendar() -> Dict[str, str]:
         "pdf1": "",
         "pdf2": "",
         "last_updated": "لم يتم التحديث بعد",
-        "last_source": "غير معروف",  # website/manual/cleared
+        "last_source": "غير معروف",
         "auto_enabled": "true",
-        "display_mode": "auto",  # auto/manual/cleared
-        "manual_text": "",  # legacy manual text (super admin)
+        "display_mode": "auto",
+        "manual_text": "",
     }
 
 
 def _default_colleges() -> Dict[str, Dict[str, Any]]:
     base_url = "https://www.aou.edu.kw/ar/academic-programs/Pages/default.aspx"
     
-    # ✅ إضافة شروط قبول مفصلة لكل كلية
     admission_conditions = {
         "🏢 كلية إدارة الأعمال": (
             "📝 شروط القبول في كلية إدارة الأعمال:\n\n"
@@ -501,10 +439,9 @@ def _default_content_items() -> Dict[str, Dict[str, str]]:
         return {"text": "", "file_id": "", "file_type": "", "file_name": "", "mime_type": "", "updated_at": ""}
 
     keys = set(CONTENT_KEYS.values())
-    # ✅ إضافات جديدة:
     keys.add(CONTENT_KEY_ADD_DROP)
     keys.add(CONTENT_KEY_CALENDAR_ATTACH)
-    keys.add(CONTENT_KEY_ADMISSION)  # ✅ إضافة زر القبول
+    keys.add(CONTENT_KEY_ADMISSION)
     return {k: item() for k in keys}
 
 
@@ -537,7 +474,7 @@ def load_data() -> BotData:
             users=set(),
             extra_admins=set(),
             inbox=[],
-            announcements=[],  # ✅ إضافة قائمة الإعلانات
+            announcements=[],
             general_groups=[],
             colleges=_default_colleges(),
             calendar=_default_calendar(),
@@ -560,7 +497,7 @@ def load_data() -> BotData:
         if not isinstance(inbox, list):
             inbox = []
             
-        announcements = raw.get("announcements", [])  # ✅ تحميل الإعلانات
+        announcements = raw.get("announcements", [])
         if not isinstance(announcements, list):
             announcements = []
 
@@ -570,7 +507,6 @@ def load_data() -> BotData:
         if not isinstance(colleges, dict) or not colleges:
             colleges = _default_colleges()
         else:
-            # ✅ تحديث الكليات القديمة لإضافة شروط القبول
             default_colleges = _default_colleges()
             for cname, cobj in list(colleges.items()):
                 if not isinstance(cobj, dict):
@@ -580,7 +516,6 @@ def load_data() -> BotData:
                 cobj.setdefault("url", "")
                 cobj.setdefault("whatsapp", [])
                 cobj.setdefault("telegram", [])
-                # ✅ إضافة شروط القبول إذا لم تكن موجودة
                 if "admission_conditions" not in cobj and cname in default_colleges:
                     cobj["admission_conditions"] = default_colleges[cname].get("admission_conditions", "")
                 elif "admission_conditions" not in cobj:
@@ -630,7 +565,7 @@ def load_data() -> BotData:
             users=users,
             extra_admins=extra_admins,
             inbox=inbox,
-            announcements=announcements,  # ✅ تمرير الإعلانات
+            announcements=announcements,
             general_groups=general_groups,
             colleges=colleges,
             calendar={str(k): str(v) for k, v in calendar.items()},
@@ -647,7 +582,7 @@ def load_data() -> BotData:
             users=set(),
             extra_admins=set(),
             inbox=[],
-            announcements=[],  # ✅ إضافة قائمة الإعلانات
+            announcements=[],
             general_groups=[],
             colleges=_default_colleges(),
             calendar=_default_calendar(),
@@ -665,7 +600,7 @@ def save_data(data: BotData) -> None:
         "users": list(data.users),
         "extra_admins": list(data.extra_admins),
         "inbox": data.inbox,
-        "announcements": data.announcements,  # ✅ حفظ الإعلانات
+        "announcements": data.announcements,
         "general_groups": data.general_groups,
         "colleges": data.colleges,
         "calendar": data.calendar,
@@ -759,16 +694,9 @@ def set_label(key: str, new_label: str) -> None:
 
 
 # =================================================================
-# CONTACT GATE (KUWAIT ONLY)
-# =================================================================
-# CONTACT GATE (KUWAIT ONLY)
+# CONTACT GATE (KUWAIT ONLY) - FIXED
 # =================================================================
 def normalize_kw_phone(raw: str):
-    """
-    Accepts:
-    - +965XXXXXXXX
-    - 965XXXXXXXX
-    """
     s = normalize_digits(raw or "")
     s = re.sub(r"[^\d+]", "", s)
     
@@ -777,19 +705,19 @@ def normalize_kw_phone(raw: str):
         
     if s.startswith("00"):
         s = "+" + s[2:]
-
+        
     if s.startswith("+"):
         if s.startswith("+965") and len(s) == 12 and s[4:].isdigit():
             return s, "ok"
-        return None, "non_kw_country_code"
-
+        return None, "invalid_prefix"
+        
     if s.startswith("965") and len(s) == 11 and s[3:].isdigit():
-        return "+965" + s[3:], "ok"
-
-    if len(s) == 8 and s.isdigit() and s[0] in {"2", "5", "6", "9"}:
+        return "+" + s, "ok"
+        
+    if len(s) == 8 and s.isdigit():
         return "+965" + s, "ok"
-
-    return None, "invalid_format"
+        
+    return None, "bad_length"
 
 
 def contact_kb() -> ReplyKeyboardMarkup:
@@ -896,7 +824,6 @@ def build_contacts_excel(path: str) -> None:
     for x in bad_list:
         ws_bad.append([x.get("time", ""), x.get("id", ""), x.get("name", ""), x.get("username", ""), x.get("raw", ""), x.get("reason", "")])
 
-    # Auto-fit-ish columns
     for ws in (ws_ok, ws_bad):
         for col in range(1, ws.max_column + 1):
             col_letter = get_column_letter(col)
@@ -1056,9 +983,6 @@ async def send_content_to_user(update: Update, item_key: str, fallback_text: Opt
 # =========================================================
 async def send_announcement_to_all(app: Application, text: str, photo_file_id: Optional[str] = None, 
                                    document_file_id: Optional[str] = None, document_name: Optional[str] = None) -> Tuple[int, int]:
-    """
-    إرسال إعلان لجميع المستخدمين المسجلين
-    """
     users = data_read(lambda: list(DATA.users))
     sent_count = 0
     failed_count = 0
@@ -1074,8 +998,6 @@ async def send_announcement_to_all(app: Application, text: str, photo_file_id: O
             else:
                 await app.bot.send_message(chat_id=user_id, text=clip(text))
             sent_count += 1
-            
-            # تجنب إرسال سريع جداً لتجنب حظر تيليجرام
             await asyncio.sleep(0.05)
             
         except TelegramError as e:
@@ -1087,7 +1009,6 @@ async def send_announcement_to_all(app: Application, text: str, photo_file_id: O
             failed_count += 1
             continue
     
-    # ✅ حفظ الإعلان في السجلات
     if sent_count > 0:
         data_mutate(lambda: DATA.announcements.append({
             "time": now_str(),
@@ -1298,7 +1219,7 @@ async def forward_to_admins(app: Application, text: str) -> None:
 
 
 # =========================================================
-# KEYBOARDS
+# KEYBOARDS (keep as original, but we need to ensure all functions are defined)
 # =========================================================
 def kb_confirm() -> ReplyKeyboardMarkup:
     return ReplyKeyboardMarkup(
@@ -1451,7 +1372,7 @@ def kb_admin(uid: int) -> ReplyKeyboardMarkup:
         rows.insert(3, [KeyboardButton(BTN_CAL_USE_AUTO), KeyboardButton(BTN_CAL_CLEAR)])
         rows.insert(4, [KeyboardButton(BTN_HIDE_MENU), KeyboardButton(BTN_RENAME_MENU)])
         rows.insert(5, [KeyboardButton(BTN_AM_MENU)])
-        rows.insert(6, [KeyboardButton(BTN_ANNOUNCEMENTS)])  # ✅ إضافة زر الإعلانات
+        rows.insert(6, [KeyboardButton(BTN_ANNOUNCEMENTS)])
     return ReplyKeyboardMarkup(rows, resize_keyboard=True)
 
 
@@ -1486,7 +1407,6 @@ def kb_general_groups_user(uid: int) -> ReplyKeyboardMarkup:
 
 def kb_contact_service_admin(uid: int) -> ReplyKeyboardMarkup:
     enabled = data_read(lambda: bool(DATA.contact_collection_enabled))
-    # ✅ عرض للأدمن، لكن التغيير/المسح للسوبر فقط
     rows: List[List[KeyboardButton]] = [
         [KeyboardButton(BTN_CC_SHOW_OK), KeyboardButton(BTN_CC_SHOW_BAD)],
         [KeyboardButton(BTN_CC_EXPORT_XLSX)],
@@ -1538,7 +1458,7 @@ def kb_college_view(uid: int) -> ReplyKeyboardMarkup:
     rows = [
         [KeyboardButton(BTN_COLLEGE_ABOUT), KeyboardButton(BTN_COLLEGE_URL)],
         [KeyboardButton(BTN_COLLEGE_WA), KeyboardButton(BTN_COLLEGE_TG)],
-        [KeyboardButton(BTN_COLLEGE_ADMISSION)],  # ✅ إضافة زر شروط القبول
+        [KeyboardButton(BTN_COLLEGE_ADMISSION)],
     ]
     if is_admin(uid):
         rows += [
@@ -1550,13 +1470,13 @@ def kb_college_view(uid: int) -> ReplyKeyboardMarkup:
 
 
 # =========================================================
-# USER STATE / MODES
+# USER STATE / MODES (keep as original)
 # =========================================================
 USER_MODE = "mode"
 USER_SELECTED_COLLEGE = "selected_college"
 USER_SELECTED_ITEMKEY = "selected_itemkey"
 USER_PARENT_MENU = "parent_menu"
-USER_CONFIRM = "confirm"  # {action,payload,return_to}
+USER_CONFIRM = "confirm"
 USER_STEP = "step"
 USER_TEMP = "temp"
 USER_SELECTED_ID = "selected_id"
@@ -1650,7 +1570,7 @@ def reset_flow(context: ContextTypes.DEFAULT_TYPE) -> None:
 
 
 # =========================================================
-# CONFIRM SYSTEM
+# CONFIRM SYSTEM (keep as original, but ensure it's complete)
 # =========================================================
 def start_confirm(context: ContextTypes.DEFAULT_TYPE, action: str, payload: dict, return_to: dict) -> None:
     context.user_data[USER_CONFIRM] = {"action": action, "payload": payload, "return_to": return_to}
@@ -1890,7 +1810,6 @@ async def run_confirm_action(update: Update, context: ContextTypes.DEFAULT_TYPE)
         document_file_id = str(payload.get("document_file_id", ""))
         document_name = str(payload.get("document_name", ""))
         
-        # إرسال الإعلان لجميع المستخدمين
         sent, failed = await send_announcement_to_all(
             context.application,
             text,
@@ -2056,7 +1975,6 @@ async def handle_media(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
     
     mode = get_mode(context)
     
-    # ✅ معالجة رفع الملفات للمحتوى (الخدمات، الملخصات، التقويم، السحب والإضافة، القبول)
     if mode == MODE_CONTENT_UPLOAD_FILE:
         item_key = get_selected_itemkey(context)
         parent_menu_text = get_parent_menu_text(context) or label_for(KEY_MAIN_SERVICES)
@@ -2088,7 +2006,6 @@ async def handle_media(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
         await update.message.reply_text("❌ أرسل ملف أو صورة.", reply_markup=kb_wait_cancel())
         return
     
-    # ✅ معالجة رفع الملفات للإعلانات
     elif mode == MODE_ANNOUNCEMENT_MEDIA:
         if update.message.photo:
             context.user_data[USER_ANNOUNCEMENT_PHOTO] = update.message.photo[-1].file_id
@@ -2104,7 +2021,6 @@ async def handle_media(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
             context.user_data[USER_ANNOUNCEMENT_DOC] = update.message.document.file_id
             context.user_data[USER_ANNOUNCEMENT_DOC_NAME] = update.message.document.file_name or "ملف"
             
-            # إذا كانت هناك صورة مرفوعة مسبقاً، ننتقل إلى التأكيد
             if context.user_data.get(USER_ANNOUNCEMENT_PHOTO):
                 text = context.user_data.get(USER_ANNOUNCEMENT_TEXT, "")
                 photo = context.user_data.get(USER_ANNOUNCEMENT_PHOTO)
@@ -2133,7 +2049,6 @@ async def handle_media(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
         await update.message.reply_text("❌ أرسل صورة أو ملف.", reply_markup=kb_wait_cancel())
         return
     
-    # ✅ إذا كان في وضع الإعلانات ولم يكن هناك وضع محدد، نطلب النص أولاً
     elif mode == MODE_ANNOUNCEMENTS:
         await update.message.reply_text(
             "📢 للإرسال إعلان:\n"
@@ -2257,7 +2172,6 @@ async def go_back(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     if mode in {MODE_CONTENT_EDIT_TEXT, MODE_CONTENT_UPLOAD_FILE}:
         parent = get_parent_menu_text(context) or label_for(KEY_MAIN_SERVICES)
         set_mode(context, MODE_NORMAL)
-        # العودة حسب الأب
         if parent == label_for(KEY_MAIN_SUMMARIES):
             set_mode(context, MODE_SUMMARIES)
             await update.message.reply_text("🗂️", reply_markup=kb_summaries(uid))
@@ -2265,7 +2179,6 @@ async def go_back(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
             set_mode(context, MODE_SERVICES)
             await update.message.reply_text("🧰", reply_markup=kb_services(uid))
         else:
-            # مثال: التقويم أو السحب والإضافة أو القبول
             await update.message.reply_text("🏠", reply_markup=kb_main(uid))
         return
 
@@ -2284,7 +2197,7 @@ async def go_back(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
 
 # =========================================================
-# TEXT ROUTER
+# TEXT ROUTER (Keep as original, but ensure all referenced functions exist)
 # =========================================================
 async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     if not update.message or not update.effective_user:
@@ -2345,7 +2258,7 @@ async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
         await update.message.reply_text("اختر ✅ نعم أو ❌ لا.", reply_markup=kb_confirm())
         return
 
-    # Block links for non-admin (لكن الروابط ممكن تجي من البوت نفسه عبر المحتوى)
+    # Block links for non-admin
     if not is_admin(uid) and contains_link(text):
         await update.message.reply_text("🔒 ممنوع إرسال روابط داخل البوت.", reply_markup=kb_main(uid))
         return
@@ -2417,7 +2330,7 @@ async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
         await update.message.reply_text("تأكيد تعديل اسم الزر؟", reply_markup=kb_confirm())
         return
 
-    # CALENDAR MANUAL WAIT (super only) - legacy manual text
+    # CALENDAR MANUAL WAIT (super only)
     if mode == MODE_CAL_MANUAL_WAIT:
         if not is_super_admin(uid):
             await update.message.reply_text(deny_no_perm(), reply_markup=kb_admin(uid))
@@ -2436,7 +2349,7 @@ async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
         await update.message.reply_text("✅ تم حفظ التقويم المخصص.", reply_markup=kb_admin(uid))
         return
 
-    # CONTENT EDIT TEXT (for services, summaries, calendar, add-drop, admission)
+    # CONTENT EDIT TEXT
     if mode == MODE_CONTENT_EDIT_TEXT:
         if not is_admin(uid):
             await update.message.reply_text("❌ غير متاح.", reply_markup=kb_main(uid))
@@ -2686,7 +2599,7 @@ async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
         await update.message.reply_text("تأكيد حذف الأدمن؟", reply_markup=kb_confirm())
         return
 
-    # CONTENT ADMIN PANEL BUTTONS (works for: services/summaries/calendar/add-drop/admission)
+    # CONTENT ADMIN PANEL BUTTONS
     item_key = get_selected_itemkey(context)
     parent_menu_text = get_parent_menu_text(context) or label_for(KEY_MAIN_SERVICES)
     if is_admin(uid) and item_key and text in {BTN_UPLOAD_FILE, BTN_EDIT_TEXT, BTN_DEL_FILE, BTN_DELETE_SECTION}:
@@ -2725,7 +2638,6 @@ async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
     )
 
     if k_main == KEY_MAIN_ADMISSION:
-        # ✅ زر القبول: يعرض محتوى قابل للإدارة للأدمن
         set_selected_content(context, CONTENT_KEY_ADMISSION, label_for(KEY_MAIN_ADMISSION))
         if not content_is_empty(CONTENT_KEY_ADMISSION):
             await send_content_to_user(update, CONTENT_KEY_ADMISSION, fallback_text=None)
@@ -2746,7 +2658,6 @@ async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
         await update.message.reply_text(AOU_ABOUT, reply_markup=kb_main(uid))
         return
 
-    # ✅ السحب والإضافة: محتوى قابل للإدارة للأدمن فقط
     if k_main == KEY_MAIN_ADD_DROP:
         set_selected_content(context, CONTENT_KEY_ADD_DROP, label_for(KEY_MAIN_ADD_DROP))
         await send_content_to_user(update, CONTENT_KEY_ADD_DROP, fallback_text=AOU_ADD_DROP_FALLBACK)
@@ -2756,7 +2667,6 @@ async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
             await update.message.reply_text("⬅️", reply_markup=kb_main(uid))
         return
 
-    # ✅ التقويم: يعرض مرفق/نص الأدمن إن وجد، وإلا يعرض الروابط التلقائية
     if k_main == KEY_MAIN_CALENDAR:
         set_selected_content(context, CONTENT_KEY_CALENDAR_ATTACH, label_for(KEY_MAIN_CALENDAR))
         if not content_is_empty(CONTENT_KEY_CALENDAR_ATTACH):
@@ -2946,9 +2856,8 @@ async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
         await update.message.reply_text("تأكيد مسح الرسائل؟", reply_markup=kb_confirm())
         return
 
-    # ADMIN: calendar (admin settings screen)
+    # ADMIN: calendar
     if is_admin(uid) and text == BTN_CAL_SHOW:
-        # يعرض المرفق إن وجد وإلا يعرض الروابط
         if not content_is_empty(CONTENT_KEY_CALENDAR_ATTACH):
             set_selected_content(context, CONTENT_KEY_CALENDAR_ATTACH, label_for(KEY_MAIN_CALENDAR))
             await send_content_to_user(update, CONTENT_KEY_CALENDAR_ATTACH)
@@ -3046,7 +2955,6 @@ async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
             return
 
         if text == BTN_CC_EXPORT_XLSX:
-            # ✅ تصدير Excel للأدمن
             fn = f"contacts_export_{time.strftime('%Y%m%d_%H%M%S')}.xlsx"
             path = os.path.join(os.getcwd(), fn)
             try:
