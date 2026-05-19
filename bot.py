@@ -761,7 +761,9 @@ def set_label(key: str, new_label: str) -> None:
 # =================================================================
 # CONTACT GATE (KUWAIT ONLY)
 # =================================================================
-def normalize_kw_phone(raw: str) -> Tuple[Optional[str], str]:
+# CONTACT GATE (KUWAIT ONLY)
+# =================================================================
+def normalize_kw_phone(raw: str):
     """
     Accepts:
     - +965XXXXXXXX
@@ -769,10 +771,10 @@ def normalize_kw_phone(raw: str) -> Tuple[Optional[str], str]:
     """
     s = normalize_digits(raw or "")
     s = re.sub(r"[^\d+]", "", s)
-
+    
     if not s:
         return None, "empty"
-
+        
     if s.startswith("00"):
         s = "+" + s[2:]
 
