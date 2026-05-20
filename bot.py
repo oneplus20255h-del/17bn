@@ -4,11 +4,22 @@ import json
 import logging
 import os
 import re
+import sys
 import time
 import urllib.request
 from dataclasses import dataclass
 from threading import RLock
 from typing import Any, Dict, List, Optional, Set, Tuple
+
+# حل مشكلة event loop في Python 3.14+
+import platform
+if platform.python_version().startswith('3.14'):
+    import asyncio
+    try:
+        asyncio.get_running_loop()
+    except RuntimeError:
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
 
 try:
     from openpyxl import Workbook
@@ -1839,6 +1850,7 @@ async def refresh_scoped_commands(app: Application) -> None:
         BotCommand("help", "مساعدة"),
         BotCommand("myid", "عرض آيديك"),
         BotCommand("admin", "إعدادات (للأدمن)"),
+        BotCommand("ping", "اختبار البوت"),
     ]
     user_cmds = [c for c in admin_cmds if c.command != "admin"]
 
@@ -1879,7 +1891,7 @@ def setup_jobs(app: Application) -> None:
     
     try:
         app.job_queue.run_repeating(calendar_auto_job, interval=12 * 60 * 60, first=90)
-        LOG.info("✅ تم تفعيل المهام التلقائية")
+        LOG.info("✅ تم تفعيل تحديث التقويم التلقائي")
     except Exception as e:
         LOG.error(f"❌ فشل تفعيل المهام التلقائية: {e}")
 
@@ -1907,7 +1919,7 @@ async def help_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     if not update.message or not update.effective_user:
         return
     uid = update.effective_user.id
-    await update.message.reply_text("🆘 المساعدة\nاستخدم الأزرار للتنقل.", reply_markup=kb_main(uid))
+    await update.message.reply_text("🆘 المساعدة\nاستخدم الأزرار للتنقل.\n\n/start - بدء البوت\n/ping - اختبار البوت\n/myid - معرفك\n/admin - إعدادات الأدمن", reply_markup=kb_main(uid))
 
 
 async def myid_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -2352,7 +2364,7 @@ def main() -> None:
     print("=" * 50)
     print("🤖 AOU Telegram Bot")
     print("=" * 50)
-    print(f"📱 Token: {TOKEN[:10]}...{TOKEN[-5:]}")
+    print(f"📱 Python version: {sys.version}")
     print(f"👑 Super Admins: {list(SUPER_ADMIN_IDS)}")
     print("=" * 50)
     print("✅ بدء تشغيل البوت...")
